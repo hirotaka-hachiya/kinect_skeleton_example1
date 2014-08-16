@@ -1,4 +1,4 @@
-//main.cpp Kinectから右上半身の関節位置を取得し、骨格情報を描画するプログラム
+//main.cpp Kinectから右上半身の関節位置を取得し、線と丸で描画するプログラム
 #include "myKinect.h"
 #include <tchar.h>
 #include <iostream>
@@ -14,15 +14,14 @@ int _tmain(int argc, _TCHAR* argv[])
  //キー'q'が押されるまでループ
  while (true)
  {    
-  //--------
+
   // 右上半身の骨格表示用のOpenCv行列を作成
   cv::Mat img = cv::Mat::zeros(300, 500, CV_8UC3);
-  //--------
  
   //次のフレームの骨格情報を取得
   NuiSkeletonGetNextFrame(0, &SkeletonFrame); 
 
-  //１人目の骨格情報を追跡できているか、または、関節位置情報を取得できているか？
+  //１人目の骨格情報を追跡できているか、または、関節位置を取得できているか？
   if(SkeletonFrame.SkeletonData[0].eTrackingState==NUI_SKELETON_TRACKED
 	  || SkeletonFrame.SkeletonData[0].eTrackingState==NUI_SKELETON_POSITION_ONLY)
   {      
@@ -46,7 +45,7 @@ int _tmain(int argc, _TCHAR* argv[])
    std::cout<<"Right Hand:"<<hand_r.x - shoulder_r.x<<", \\
 	   "<<hand_r.y-shoulder_r.y<<", "<<hand_r.z-shoulder_r.z<<std::endl;
 
-   //関節間を繋ぐ線を描画
+   //２つの関節間を繋ぐ線を描画
    drawLine(img, wrist_r,  hand_r);
    drawLine(img, elbow_r,  wrist_r);
    drawLine(img, shoulder_r,  elbow_r);
