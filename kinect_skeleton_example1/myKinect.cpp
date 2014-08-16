@@ -1,3 +1,4 @@
+//myKinect.cpp KinectŠÖ˜A‚ÌŠÖ”
 #include "myKinect.h"
 
 //connectKinect@Kinect‚ÉÚ‘±

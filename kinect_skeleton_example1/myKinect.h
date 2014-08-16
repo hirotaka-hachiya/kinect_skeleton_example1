@@ -1,3 +1,4 @@
+//myKinect.h KinectŠÖ˜A‚ÌŠÖ”
 #include <windows.h>
 #include <NuiApi.h>
 #include <NuiSkeleton.h>
