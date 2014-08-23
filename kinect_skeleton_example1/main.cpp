@@ -57,7 +57,7 @@ int _tmain(int argc, _TCHAR* argv[])
    drawPoint(img, hand_r);
 
    //行列を表示
-   cv::imshow("右上半身の関節位置", img);
+   cv::imshow(" ", img);
   
    //キー'q'が押されたらループを停止
    int key = cv::waitKey(10);
@@ -65,9 +65,11 @@ int _tmain(int argc, _TCHAR* argv[])
     break;
    }
 
-   // 骨格情報を連続に変化するように変換
-   NuiTransformSmooth(&SkeletonFrame,NULL);
-  }        
+  }      
+
+  // 骨格情報を連続に変化するように変換
+  NuiTransformSmooth(&SkeletonFrame,NULL);
+
  }
 
  return 0;
